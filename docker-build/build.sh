@@ -8,3 +8,4 @@ cd ..
 docker build $RUTA -t $NAME
 docker push $NAME
 pba/refresh.sh $SERVICE $NAME $(date -r $RUTA$FILE)
+
