@@ -1,11 +1,10 @@
 export NAME=nexus.ci.gustavo-arellano.com:5005/pba-service
 export FILE=pba-service-0.0.1-SNAPSHOT-fat.jar
 export SERVICE=pba-service
+export RUTA=/home/ubuntu/pba/
 
 cd ..
 
-#mvn -f ../pom.xml clean package
-#cp ../target/$FILE .
-docker build . -t $NAME
+docker build $RUTA -t $NAME
 docker push $NAME
-pba/refresh.sh $SERVICE $NAME $(date -r $FILE)
+pba/refresh.sh $SERVICE $NAME $(date -r $RUTA$FILE)
