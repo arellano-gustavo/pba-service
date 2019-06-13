@@ -4,8 +4,8 @@ export SERVICE=pba-service
 
 cd ..
 
-mvn -f ../pom.xml clean package
-cp ../target/$FILE .
+#mvn -f ../pom.xml clean package
+#cp ../target/$FILE .
 docker build . -t $NAME
 docker push $NAME
 pba/refresh.sh $SERVICE $NAME $(date -r $FILE)
