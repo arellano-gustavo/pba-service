@@ -13,8 +13,8 @@
 	    
     <repositories>
         <repository>
-            <id>nexus.cgtic.conacyt.mx</id>
-            <url>http://nexus.cgtic.conacyt.mx/repository/all/</url>
+            <id>nexus.ci.gustavo-arellano.com</id>
+            <url>http://nexus.ci.gustavo-arellano.com/repository/all/</url>
             <name>Kebblar Repository</name>
         </repository>
     </repositories>
