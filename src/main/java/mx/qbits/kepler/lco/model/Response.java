@@ -10,6 +10,7 @@ import mx.qbits.kepler.lco.service.CalculatorSrvImpl;
 
 public class Response {
     private String calculado;
+    private String conteo;
     private String localAddress;
     private String remoteAddress;
     private long time;
@@ -20,7 +21,7 @@ public class Response {
         CalculatorSrv calc = new CalculatorSrvImpl();
         long start = System.currentTimeMillis();
         this.inputNum = calc.convert(input);
-        String conteo = calc.countFact(inputNum);
+        this.conteo = calc.countFact(inputNum);
         this.calculado = "El factorial de "+ inputNum + " tiene " + conteo + " digitos";
         this.time = System.currentTimeMillis() - start;
         this.localAddress = request.localAddress().host();
@@ -73,7 +74,7 @@ public class Response {
         Map<String, String> info = new HashMap<String, String>();
         //info.put("RemoteAddress", request.remoteAddress().host()+":"+request.remoteAddress().port());
         info.put("Input Num", this.inputNum+"");
-        info.put("Calculated Num", this.calculado+"");
+        info.put("Calculated Num", this.conteo);
         info.put("Current Node IP", this.localAddress);
         info.put("Caller IP", this.remoteAddress);
         Date now = new Date();
