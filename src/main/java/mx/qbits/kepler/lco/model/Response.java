@@ -76,7 +76,7 @@ public class Response {
         Date now = new Date();
         info.put("Call Timestamp", now.toString());
         info.put("Calc time", this.time+ " milisegundos");
-        info.put("version", "13.13.13");
+        info.put("version", "3.1.4");
         
         Map<String, Object> resp = new HashMap<String, Object>();
         resp.put("result", num);
