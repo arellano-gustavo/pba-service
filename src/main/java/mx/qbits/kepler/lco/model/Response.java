@@ -9,18 +9,19 @@ import mx.qbits.kepler.lco.service.CalculatorSrv;
 import mx.qbits.kepler.lco.service.CalculatorSrvImpl;
 
 public class Response {
-    private String num;
+    private String calculado;
     private String localAddress;
     private String remoteAddress;
     private long time;
+    private int inputNum;
     
     public Response(HttpServerRequest request, String input) {
         // invoke service & compute time:
         CalculatorSrv calc = new CalculatorSrvImpl();
         long start = System.currentTimeMillis();
-        int numero = calc.convert(input);
-        String conteo = calc.countFact(numero);
-        this. num = "El factorial de "+ numero + " tiene " + conteo + " digitos";
+        this.inputNum = calc.convert(input);
+        String conteo = calc.countFact(inputNum);
+        this.calculado = "El factorial de "+ inputNum + " tiene " + conteo + " digitos";
         this.time = System.currentTimeMillis() - start;
         this.localAddress = request.localAddress().host();
         this.remoteAddress = request.remoteAddress().host();
@@ -28,7 +29,7 @@ public class Response {
 
     @Override
     public String toString() {
-        return "Response [num=" + num + ", localAddress=" + localAddress + ", remoteAddress=" + remoteAddress + "]";
+        return "Response [calculado=" + calculado + ", localAddress=" + localAddress + ", remoteAddress=" + remoteAddress + "]";
     }
 
     @Override
@@ -36,7 +37,7 @@ public class Response {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((localAddress == null) ? 0 : localAddress.hashCode());
-        result = prime * result + ((num == null) ? 0 : num.hashCode());
+        result = prime * result + ((calculado == null) ? 0 : calculado.hashCode());
         result = prime * result + ((remoteAddress == null) ? 0 : remoteAddress.hashCode());
         return result;
     }
@@ -55,10 +56,10 @@ public class Response {
                 return false;
         } else if (!localAddress.equals(other.localAddress))
             return false;
-        if (num == null) {
-            if (other.num != null)
+        if (calculado == null) {
+            if (other.calculado != null)
                 return false;
-        } else if (!num.equals(other.num))
+        } else if (!calculado.equals(other.calculado))
             return false;
         if (remoteAddress == null) {
             if (other.remoteAddress != null)
@@ -71,15 +72,17 @@ public class Response {
     public Map<String, Object> build() throws Exception {
         Map<String, String> info = new HashMap<String, String>();
         //info.put("RemoteAddress", request.remoteAddress().host()+":"+request.remoteAddress().port());
-        info.put("Current Node IP", localAddress);
-        info.put("Caller IP", remoteAddress);
+        info.put("Input Num", this.inputNum+"");
+        info.put("Calculated Num", this.calculado+"");
+        info.put("Current Node IP", this.localAddress);
+        info.put("Caller IP", this.remoteAddress);
         Date now = new Date();
         info.put("Call Timestamp", now.toString());
         info.put("Calc time", this.time+ " milisegundos");
         info.put("version", "3.1.4");
         
         Map<String, Object> resp = new HashMap<String, Object>();
-        resp.put("result", num);
+        resp.put("result", calculado);
         resp.put("info", info);
         return resp;
     }
