@@ -76,6 +76,7 @@
 	          <target>1.8</target>
 	        </configuration>
 	      </plugin>
+
 		 <plugin>
 		  <groupId>org.apache.maven.plugins</groupId>
 		  <artifactId>maven-shade-plugin</artifactId>
@@ -221,7 +222,80 @@
                 </configuration>
             </plugin>
             		
-		
+            <!-- Copy Templates Plugin -->
+            <plugin>
+                <artifactId>exec-maven-plugin</artifactId>
+                <groupId>org.codehaus.mojo</groupId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>Copy Templates</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>${basedir}/copy-templates.sh</executable>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Read properties file Plugin -->
+              <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                  <execution>
+                    <phase>initialize</phase>
+                    <goals>
+                      <goal>read-project-properties</goal>
+                    </goals>
+                    <configuration>
+                      <files>
+                        <file>image-params.properties</file>
+                      </files>
+                    </configuration>
+                  </execution>
+                </executions>
+              </plugin>
+
+            <!-- Replacer Plugin -->
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>maven-replacer-plugin</artifactId>
+                <version>1.4.1</version>
+                <executions>
+                    <execution>
+                        <id>replaceTokens</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                   <tokenValueMap>docker-build-backup/image-params.properties</tokenValueMap>
+                    <includes>
+                        <include>docker-build/**/*.*</include>
+                        <include>docker-build/**/Dockerfile</include>
+                    </includes>
+        <!--         <excludes> -->
+        <!--             <exclude>docker-build/**/do-not-replace-me.*</exclude> -->
+        <!--         </excludes> -->
+                    <replacements>
+                        <replacement><token>@1</token><value>${CLUSTER_ID}</value></replacement>
+                        <replacement><token>@2</token><value>${NAMESPACE}</value></replacement>
+                        <replacement><token>@3</token><value>${SERVICE}</value></replacement>
+                        <replacement><token>@4</token><value>${TOKEN}</value></replacement>
+                        <replacement><token>@5</token><value>${IMAGE_NAME}</value></replacement>
+                        <replacement><token>@6</token><value>${project.artifactId}-${project.version}-fat.jar</value></replacement>
+                        <replacement><token>@7</token><value>${RUTA}</value></replacement>
+                    </replacements>
+                </configuration>
+            </plugin>
+
     </plugins>
   </build>    
 
