@@ -37,7 +37,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     
-    <name>LCO Service</name>
+    <name>Fact Count Service</name>
     <description>Proyecto "PBA Service" v 0.0.1 SNAPSHOT !</description>
     <url>http://qbits.mx</url>
     <inceptionYear>2017</inceptionYear>
