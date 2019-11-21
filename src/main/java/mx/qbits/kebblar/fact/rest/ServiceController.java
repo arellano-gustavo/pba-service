@@ -1,4 +1,4 @@
-package mx.qbits.kepler.lco.rest;
+package mx.qbits.kebblar.fact.rest;
 
 import java.io.InputStream;
 import java.util.Map;
@@ -14,7 +14,7 @@ import io.vertx.core.json.Json;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
-import mx.qbits.kepler.lco.model.Response;
+import mx.qbits.kebblar.fact.model.Response;
 
 /**
  * Clase controlador que contiene el flujo de negocio para exponer la búsqueda de RFC en LCO

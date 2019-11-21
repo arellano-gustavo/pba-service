@@ -1,4 +1,4 @@
-package mx.qbits.kepler.lco.service;
+package mx.qbits.kebblar.fact.service;
 
 /**
  * Interface for Calculator service

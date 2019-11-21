@@ -1,12 +1,12 @@
-package mx.qbits.kepler.lco.model;
+package mx.qbits.kebblar.fact.model;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 import io.vertx.core.http.HttpServerRequest;
-import mx.qbits.kepler.lco.service.CalculatorSrv;
-import mx.qbits.kepler.lco.service.CalculatorSrvImpl;
+import mx.qbits.kebblar.fact.service.CalculatorSrv;
+import mx.qbits.kebblar.fact.service.CalculatorSrvImpl;
 
 public class Response {
     private String calculado;

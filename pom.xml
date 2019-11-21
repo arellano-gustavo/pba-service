@@ -13,32 +13,32 @@
 
     <repositories>
         <repository>
-            <id>nexus.ci.gustavo-arellano.com</id>
-            <url>http://nexus.ci.gustavo-arellano.com/repository/all/</url>
+            <id>nexus.ci.ultrasist.net</id>
+            <url>http://nexus.ci.ultrasist.net/repository/all/</url>
             <name>Kebblar Repository</name>
         </repository>
     </repositories>
 	    
 	<distributionManagement>
 		<repository>
-            <id>nexus.ci.gustavo-arellano.com</id>
-			<url>https://nexus.ci.gustavo-arellano.com/repository/maven-releases/</url>
+            <id>nexus.ci.ultrasist.net</id>
+			<url>https://nexus.ci.ultrasist.net/repository/maven-releases/</url>
 			<uniqueVersion>true</uniqueVersion>
 		</repository>
         <snapshotRepository>
-            <id>nexus.ci.gustavo-arellano.com</id>
-            <url>https://nexus.ci.gustavo-arellano.com/repository/maven-snapshots/</url>
+            <id>nexus.ci.ultrasist.net</id>
+            <url>https://nexus.ci.ultrasist.net/repository/maven-snapshots/</url>
             <uniqueVersion>true</uniqueVersion>
         </snapshotRepository>
 	</distributionManagement>
 	
 	<groupId>mx.qbits.kepler</groupId>
-    <artifactId>pba-service</artifactId>
+    <artifactId>factorial</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
     
     <name>Fact Count Service</name>
-    <description>Proyecto "PBA Service" v 0.0.1 SNAPSHOT !</description>
+    <description>Proyecto "Factorial" v 0.0.1 SNAPSHOT !</description>
     <url>http://qbits.mx</url>
     <inceptionYear>2017</inceptionYear>
     

@@ -20,7 +20,7 @@
  * Historia:    OFG: Se incorpora documentación 20170710_1249
  *
  */
-package mx.qbits.kepler.lco.utils;
+package mx.qbits.kebblar.fact.utils;
 
 /**
  * Clase que contiene métodos útiles para el proyecto

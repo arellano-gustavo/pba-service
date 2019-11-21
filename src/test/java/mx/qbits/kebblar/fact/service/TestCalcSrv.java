@@ -20,8 +20,7 @@
  * Historia:    OFG: Se incorpora documentación 20170421_1256
  *
  */
-
-package mx.qbits.kepler.lco.service;
+package mx.qbits.kebblar.fact.service;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;
